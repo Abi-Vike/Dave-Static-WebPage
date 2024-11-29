@@ -1080,6 +1080,22 @@ ul.social-buttons li:last-child {
   border: 1px solid #b0b0b0;
 }
 
+.contact-details .dark-box {
+  background-color: #dedada;
+  border-radius: 5%;
+}
+
+.contact-details .dark-box:hover {
+  background-color: #ffa600;
+  border-radius: 5%;
+}
+
+.contact-details p {
+  color: #522525;
+  font-size: medium;
+  font-weight: 400;
+}
+
 .btn-send {
   background: #522525;
   color: whitesmoke;
@@ -1414,9 +1430,10 @@ ul.slides li {
 @media (max-width: 767px) {
   #youtube .col-sm-4 {
     margin-left: 15px;
+    margin-bottom: -100px;
+    margin-top: -50px;
     padding-left: 0;
     padding-right: 0;
-    margin-bottom: 20px; /* Adjust as needed for smaller screens */
   }
 
   /* Ensure images take full width on small devices */
