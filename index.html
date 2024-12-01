@@ -169,7 +169,6 @@
               <!-- Blog Post 2 -->
               <li>
                 <h6>ልዕል ምባል ንመን?</h6>
-
                 <p>
                   <span class="truncate"
                     data-full-text="ዝግብኣካ ዕዮ ምዕያይ ግቡእ ሙዃኑ ኩሉ ሰብ ዚሰማምዓሉ ሓቒ እዩ ኣብ ዘይናትካ ወይ ድማ ኣብ ዘይግብኣካ ዕዮ ጣልቃ ምስ እትኣቱ ግና ኣዝዩ ኣዕናዊ ዚኾነ ውጽኢት እዩ ዘስዕብ። እዚ ማለት እዝኒ ’’ኣነ ምርኣይ እዩ ስርሐይ’’ ኢላ ካብ ስርዓት ወጻኢ ናይ ዓይኒ ስራሕ ኽትሰርሕ ከም ምፍታን እዩ ብዝኾነ ይኹን መገዲ ግና ዘይከኣል እዩ።">
@@ -248,8 +247,8 @@
     =========================== -->
 
   <!-- ==========================
-    YOUTUBE SECTION 
-    =========================== -->
+        YOUTUBE SECTION 
+        =========================== -->
   <section class="text-center section-padding" id="youtube">
     <div class="container">
       <!-- Headline -->
@@ -265,9 +264,19 @@
         <!-- Video 1 -->
         <div class="col-sm-4 wp4">
           <div class="overlay-effect effects clearfix">
-            <div class="img"> 
-              <a href="https://www.youtube.com/watch?v=aPgDZJUOVIY" class="youtube-popup">
-                <img src="https://img.youtube.com/vi/aPgDZJUOVIY/0.jpg" alt="YouTube Video 1" />
+            <div class="img">
+              <a
+                href="#"
+                class="youtube-popup"
+                data-toggle="modal"
+                data-target="#youtubeModal"
+                data-video-id="aPgDZJUOVIY"
+              >
+                <img
+                  src="https://img.youtube.com/vi/aPgDZJUOVIY/0.jpg"
+                  alt="YouTube Video 1"
+                  class="grayscale"
+                />
                 <div class="play-icon">
                   <i class="fa fa-play-circle fa-3x"></i>
                 </div>
@@ -281,8 +290,18 @@
         <div class="col-sm-4 wp4">
           <div class="overlay-effect effects clearfix">
             <div class="img">
-              <a href="https://www.youtube.com/watch?v=cUzy3u9q63E" class="youtube-popup">
-                <img src="https://img.youtube.com/vi/cUzy3u9q63E/0.jpg" alt="YouTube Video 2" />
+              <a
+                href="#"
+                class="youtube-popup"
+                data-toggle="modal"
+                data-target="#youtubeModal"
+                data-video-id="cUzy3u9q63E"
+              >
+                <img
+                  src="https://img.youtube.com/vi/cUzy3u9q63E/0.jpg"
+                  alt="YouTube Video 2"
+                  class="grayscale"
+                />
                 <div class="play-icon">
                   <i class="fa fa-play-circle fa-3x"></i>
                 </div>
@@ -296,8 +315,18 @@
         <div class="col-sm-4 wp4">
           <div class="overlay-effect effects clearfix">
             <div class="img">
-              <a href="https://www.youtube.com/watch?v=JLBLT1i6IWE" class="youtube-popup">
-                <img src="https://img.youtube.com/vi/JLBLT1i6IWE/0.jpg" alt="YouTube Video 3" />
+              <a
+                href="#"
+                class="youtube-popup"
+                data-toggle="modal"
+                data-target="#youtubeModal"
+                data-video-id="JLBLT1i6IWE"
+              >
+                <img
+                  src="https://img.youtube.com/vi/JLBLT1i6IWE/0.jpg"
+                  alt="YouTube Video 3"
+                  class="grayscale"
+                />
                 <div class="play-icon">
                   <i class="fa fa-play-circle fa-3x"></i>
                 </div>
@@ -310,9 +339,35 @@
     </div>
   </section>
   <!-- ==========================
-    YOUTUBE SECTION END
-    =========================== -->
-  
+  YOUTUBE SECTION END
+  =========================== -->
+
+  <!-- ==========================
+      Blog Post Modal
+      =========================== -->
+  <div class="modal fade" id="youtubeModal" tabindex="-1" role="dialog" aria-labelledby="youtubeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="youtubeModalLabel">YouTube Video</h4>
+        </div>
+        <div class="modal-body">
+          <div class="embed-responsive embed-responsive-4by3">
+            <iframe
+              class="embed-responsive-item" src="" id="youtubeModalIframe" allowscriptaccess="always" allow="autoplay" frameborder="0"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ==========================
+      Blog Post Modal END
+      =========================== -->
+
   <!-- ==========================
       SOCIAL SECTION END
       =========================== -->
@@ -578,6 +633,35 @@
       speed: 2000, // How many milliseconds until the next word show.
     });
   </script>
+
+<script>
+  $(document).ready(function () {
+    // Function to handle modal show event
+    $("#youtubeModal").on("show.bs.modal", function (event) {
+      var button = $(event.relatedTarget); // Element that triggered the modal
+      var videoId = button.data("video-id"); // Extract video ID from data-* attributes
+
+      // Construct the YouTube embed URL with autoplay
+      var videoSrc = "https://www.youtube.com/embed/" + videoId + "?autoplay=1&rel=0";
+
+      // Update the iframe's src attribute
+      $("#youtubeModalIframe").attr("src", videoSrc);
+
+      // Optionally, set the modal title based on the video's title
+      var videoTitle = button.closest(".col-sm-4").find("h2").text();
+      $("#youtubeModalLabel").text(videoTitle);
+    });
+
+    // Function to handle modal hide event
+    $("#youtubeModal").on("hidden.bs.modal", function (event) {
+      // Reset the iframe's src attribute to stop the video
+      $("#youtubeModalIframe").attr("src", "");
+    });
+  });
+</script>
+
+
+
 </body>
 
 </html>
