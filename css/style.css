@@ -331,29 +331,14 @@ table {
   background-color: #fff;
 }
 .dark-box {
-  background: #f3f5f8;
-  -webkit-box-shadow: 0px 3px 0px 0px #e04343;
-  -moz-box-shadow: 0px 3px 0px 0px #e04343;
-  box-shadow: 0px 3px 0px 0px #e04343;
+  box-shadow: 0px 1px 0px 0px #753030;
   padding: 20px 0;
 }
-.dark-box:hover,
-.dark-box:focus {
-  -webkit-box-shadow: 0px 3px 0px 0px #ffe801;
-  -moz-box-shadow: 0px 3px 0px 0px #ffe801;
-  box-shadow: 0px 3px 0px 0px #ffe801;
-}
-.box-hover {
-  transition: all 500ms ease-in-out;
-  -webkit-transition: all 500ms ease-in-out;
-  -moz-transition: all 500ms ease-in-out;
-  -o-transition: all 500ms ease-in-out;
-}
-.box-hover:hover,
-.box-hover:focus {
-  transform: translate(0, -15px);
-  -webkit-transform: translate(0, -15px);
-  -ms-transform: translate(0, -15px);
+
+.dark-box:hover {
+  transition: all 200ms ease-in-out;
+  transform: translate(0, -5px);
+  -ms-transform: translate(0, -5px);
 }
 .wrapper {
   height: 650px;
@@ -823,7 +808,7 @@ img.grayscale:hover {
   margin-right: 5px;
 }
 .effects .img:first-child {
-  margin-left: -15px;
+  margin-left: -5px;
 }
 .effects .img:last-child {
   margin-right: 0;
@@ -874,9 +859,9 @@ img.grayscale:hover {
   transition: opacity 0.35s, transform 0.35s;
   -moz-transition: opacity 0.35s, -moz-transform 0.35s;
   -o-transition: opacity 0.35s, -o-transform 0.35s;
-  -webkit-transform: translate3d(-40px, 0, 0);
-  transform: translate3d(-40px, 0, 0);
-  -ms-transform: translate3d(-40px, 0, 0);
+  -webkit-transform: translate3d(0px, 0, 0);
+  transform: translate3d(5px, 0, 0);
+  -ms-transform: translate3d(0px, 0, 0);
 }
 .img:hover img {
   -webkit-transform: translate3d(0, 0, 0);
@@ -1085,11 +1070,6 @@ ul.social-buttons li:last-child {
   border-radius: 5%;
 }
 
-.contact-details .dark-box:hover {
-  background-color: #ffa600;
-  border-radius: 5%;
-}
-
 @media (max-width: 767px) {
   .contact-details .col-sm-4 {
     margin-bottom: 20px;
@@ -1126,15 +1106,15 @@ button:active {
 }
 /* ==========================================================================Footer========================================================================== */
 footer a {
-  color: #a1a9b0;
+  color: #a8a3a3;
 }
 footer {
   margin-top: -100px;
-  background-color: #f3f5f8;
+  background-color: #e4e1e1;
   padding: 40px 0 30px;
 }
 footer p {
-  color: #808080;
+  color: #816565;
 }
 /* ==========================================================================FlexSlider Custom CSS========================================================================== */
 #servicesSlider {
@@ -1366,8 +1346,7 @@ ul.slides li {
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  opacity: 0.8;
-  display: none;
+  display: block;
   transition: opacity 0.3s;
 }
 
@@ -1375,11 +1354,6 @@ ul.slides li {
 .overlay-effect {
   position: relative;
   display: inline-block;
-}
-
-/* Show Play Icon on Hover */
-.overlay-effect:hover .play-icon {
-  display: block;
 }
 
 /* Image Container Positioning */
