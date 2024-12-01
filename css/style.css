@@ -1380,8 +1380,8 @@ ul.slides li {
 }
 
 .modal-content {
-  background-color: #a8a8a8;
-  height: 30em;
+  background-color: #c0c0c0;
+  height: auto;
   width: auto;
 }
 
